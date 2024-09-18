@@ -4,7 +4,10 @@ import pygetwindow as gw
 from pywinauto.application import Application
 
 # Ключевые слова для поиска в заголовках окон
-KEYWORDS = ["казино", "casino", "слоты", "азартные игры", "vodka", "1win", "казик", " буки"]
+KEYWORDS = ["казино", "casino", "слоты", "азартные игры", "vodka", "1win", "казик",
+            " rfpbyj", "водка казино", "rfpbr", "свит бонанза", "sweet bonanza", "vulkan", "вулкан", "кент", " kent", "vulkan", "вулкан", "кент", " kent"]
+
+exception = ["казино: песни, альбомы, плейлисты", "vk.com/audios"]
 
 # Получаем все процессы браузеров
 def get_browser_processes():
@@ -15,11 +18,17 @@ def get_browser_processes():
             browser_processes.append(proc)
     return browser_processes
 
+
 # Проверка заголовков всех открытых окон
 def monitor_browser_windows():
     while True:
         windows = gw.getAllTitles()  # Получаем все заголовки окон
         for title in windows:
+            # Пропускаем окна, если они в списке исключений
+            if any(exc in title.lower() for exc in exception):
+                continue
+
+            # Проверяем окна на запрещённые ключевые слова
             for keyword in KEYWORDS:
                 if keyword in title.lower():
                     print(f"Найдено запрещенное слово в окне: {title}")
