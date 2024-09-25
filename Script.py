@@ -3,11 +3,13 @@ import psutil
 import pygetwindow as gw
 from pywinauto.application import Application
 
-# Ключевые слова для поиска в заголовках окон
-KEYWORDS = ["казино", "casino", "слоты", "азартные игры", "vodka", "1win", "казик",
-            " rfpbyj", "водка казино", "rfpbr", "свит бонанза", "sweet bonanza", "vulkan", "вулкан", "кент", " kent", "vulkan", "вулкан", "кент", " kent"]
 
-exception = ["казино: песни, альбомы, плейлисты", "vk.com/audios"]
+# Ключевые слова для поиска в заголовках окон
+KEYWORDS = ["казино", "casino", "слоты", "слот", "азартные игры", "vodka", "1win", "казик",
+            "водка казино", "свит бонанза", "sweet bonanza", "vulkan", "вулкан", "кент", "kent", "азино", "azino", "dog house", "дог хаус", "порно",
+             "porn", "порнуха", "геи", "gay", "porno", "noodlemagazine"]
+
+exception = ["казино: песни, альбомы, плейлисты", "vk.com/audios", "restore"]
 
 # Получаем все процессы браузеров
 def get_browser_processes():
@@ -24,6 +26,7 @@ def monitor_browser_windows():
     while True:
         windows = gw.getAllTitles()  # Получаем все заголовки окон
         for title in windows:
+            print(f'Вкладки: {title}')
             # Пропускаем окна, если они в списке исключений
             if any(exc in title.lower() for exc in exception):
                 continue
@@ -34,6 +37,7 @@ def monitor_browser_windows():
                     print(f"Найдено запрещенное слово в окне: {title}")
                     close_window_by_title(title)
                     return
+
         time.sleep(5)  # Пауза между проверками
 
 # Закрываем окно по его заголовку

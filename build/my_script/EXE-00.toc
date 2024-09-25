@@ -181,7 +181,7 @@
  [],
  False,
  False,
- 1726657124,
+ 1727230366,
  [('runw.exe',
    'C:\\Users\\User\\PycharmProjects\\Script_kazik\\.venv\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\runw.exe',
    'EXECUTABLE')],
