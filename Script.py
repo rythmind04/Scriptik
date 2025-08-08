@@ -6,8 +6,8 @@ from pywinauto.application import Application
 
 # Ключевые слова для поиска в заголовках окон
 KEYWORDS = ["казино", "casino", "слоты", "слот", "азартные игры", "vodka", "1win", "казик",
-            "водка казино", "свит бонанза", "sweet bonanza", "vulkan", "вулкан", "кент", "kent", "азино", "azino", "dog house", "дог хаус", "порно",
-             "porn", "порнуха", "геи", "gay", "porno", "noodlemagazine"]
+            "водка казино", "свит бонанза", "sweet bonanza", "vulkan","vodka","playfortuna","play fortuna","enomo","jetton","selector","pinco","покердом","rio bet","riobet","gama","casinox","blitzcasino","blitz casino","honeymoney","honey money", "casinox","casino x","flagman casino","flagman casino", "кент", "kent", "азино", "azino", "dog house", "дог хаус", "порно",
+             "dragon money","dragonmoney","melbet","malbet","bet 88","bet88","vovoda","sky vegas","skyvegas","32 red","32red","porn", "порнуха", "геи", "gay", "porno", "noodlemagazine"]
 
 exception = ["казино: песни, альбомы, плейлисты", "vk.com/audios", "restore"]
 
@@ -52,7 +52,7 @@ def close_window_by_title(title):
             except Exception as e:
                 print(f"Ошибка при закрытии окна: {e}")
 
-if __name__ == "__main__":
+if name == "main":
     while True:
         monitor_browser_windows()
         time.sleep(10)  # Проверка каждые 10 секунд
